@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="DentaCare — учебный каталог товаров стоматологической клиники.">
+  <title>DentaCare · Товары клиники</title>
+  <link rel="icon" href="assets/tooth.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="src/Store.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+<header class="header"><a class="brand" href="index.html"><img src="assets/tooth.svg" alt="" width="40" height="40">DentaCare<span>стоматологическая клиника</span></a><span class="tag">Учебный проект · LAB 05</span></header>
+<main>
+  <section class="hero"><p class="eyebrow">ЗАБОТА О ВАШЕЙ УЛЫБКЕ</p><h1>Здоровая улыбка<br>начинается с ухода.</h1><p>Управляйте товарами для домашней гигиены: добавляйте позиции, меняйте количество и следите за общей стоимостью.</p><span class="hero-note">Каталог товаров DentaCare</span></section>
+  <section id="store-panel" aria-label="Управление товарами" class="workspace">
+    <aside class="form-card"><p class="eyebrow">НОВАЯ ПОЗИЦИЯ</p><h2>Добавить товар</h2><p class="muted">Название, цена и количество — всё, что нужно.</p>
+      <form id="add-form" data-action="add" novalidate>
+        <label for="name">Название товара</label><input id="name" name="name" placeholder="Например, зубная нить" required maxlength="120" aria-describedby="name-error"><small class="error" id="name-error" aria-live="polite"></small>
+        <label for="price">Цена за единицу, ₸</label><input id="price" name="price" type="number" min="0.01" max="1000000000" step="0.01" placeholder="2500" required aria-describedby="price-error"><small class="error" id="price-error" aria-live="polite"></small>
+        <label for="qty">Количество, шт.</label><input id="qty" name="qty" type="number" min="0" max="1000000" step="1" placeholder="1" required aria-describedby="qty-error"><small class="error" id="qty-error" aria-live="polite"></small>
+        <button class="primary" type="submit">+ Добавить товар</button>
+      </form>
+      <p class="hint">Количество может быть 0: товар остаётся в каталоге, но не увеличивает сумму.</p>
+    </aside>
+    <div class="catalog"><div class="catalog-head"><div><p class="eyebrow">ДОМАШНИЙ УХОД</p><h2>Товары клиники</h2></div><span id="count" class="count"></span></div>
+      <div id="product-list" class="product-list"></div>
+      <div class="total-card"><div><span>Общая стоимость</span><p>Цена × количество каждого товара</p></div><strong id="total" aria-live="polite"></strong></div>
+      <p id="status" class="status" role="status"></p>
+    </div>
+  </section>
+</main>
+<footer><span>DentaCare · Учебный каталог</span><span>Zharkynbek Dariya Bakhytbekkyzy · IT1-2310</span></footer>
+</body></html>
